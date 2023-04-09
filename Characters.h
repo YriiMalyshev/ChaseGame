@@ -66,7 +66,7 @@ public:
 
 };
 
-class Prey : Character {
+class Prey : public Character {
 
 private:
 
@@ -109,8 +109,70 @@ public:
         }
         else {
             direction = askDirection();
-            range = askRange();
+           // range = askRange();
         }
         moveTo(direction, range);
     }  // if the Prey is an NPC, choose a random direction to move in
-}
+};
+
+class Predator : public Character {
+private:
+    //friend Prey;
+    //friend class Arena;
+    //friend ostream& operator<<(ostream&, const Arena&);
+
+    const int maxRange = 5;
+
+public:
+    Predator(const std::string& name, const Point2D& location, bool npcFlag = 0)
+        : Character(name, location, npcFlag) {   }
+
+    int askRange() {
+
+        do {
+            int range;
+            cout << "На сколько? (1-5)" << endl;
+            cin >> range;
+
+            if (range >= 1 && range <= maxRange) {
+                return range;
+            }
+            else cout << "Некорректный ввод, попробуй ещё раз " << endl;
+
+        } while (true);
+    }
+
+    int askDirection() {
+        do {
+
+            int direction(0);
+            cout << "Куда идти?" << endl;
+            cout << "0 - вверх, 1 - вправо, 2 - вниз, 3 - влево," << endl;
+            cin >> direction;
+
+            if (direction <= 3 && direction >= 0) {
+                return direction;
+            }
+            else cout << "Некорректный ввод, попробуй ещё раз " << endl;
+
+        } while (true);
+
+    }
+
+    void autoMove() override {
+
+        int direction = 0;
+        int range = 0;
+
+        if (isNPC()) {
+            direction = rand() % 4;
+            range = rand() % 5 + 1;
+        }
+        else {
+            direction = askDirection();
+            range = askRange();
+        }
+
+        moveTo(direction, range);
+    }
+    };
