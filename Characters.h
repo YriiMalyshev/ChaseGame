@@ -83,6 +83,21 @@ public:
         cout << "0 - вверх, 1 - вправо, 2 - вниз, 3 - влево," << endl;
         cout << "4 - вверх-влево, 5 - вверх-вправо, 6 - вниз-вправо, 7 - вниз-влево" << endl;
         cin >> direction;
+
+        do {
+
+            int direction(0);
+            cout << "Куда идти?" << endl;
+            cout << "0 - вверх, 1 - вправо, 2 - вниз, 3 - влево," << endl;
+            cout << "4 - вверх - влево, 5 - вверх-вправо, 6 - вниз-вправо, 7 - вниз-влево" << endl;
+            cin >> direction;
+
+            if (direction <= 7 && direction >= 0) {
+                return direction;
+            }
+            else cout << "Некорректный ввод, попробуй ещё раз " << endl;
+
+        } while (true);
     }
 
     void autoMove() override {
