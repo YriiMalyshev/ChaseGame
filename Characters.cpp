@@ -63,7 +63,6 @@ bool Character::isNPC() {
     return npc;
 }
 
-
 // Конструктор класса Prey
 Prey::Prey(const string& name, const Point2D& location, bool npcFlag)
     : Character(name, location, npcFlag) {}
@@ -85,7 +84,6 @@ int Prey::askDirection() {
         }
     } while (true);
 }
-
 
 void Prey::autoMove() {
 
