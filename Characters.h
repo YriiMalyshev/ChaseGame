@@ -26,6 +26,11 @@ public:
     bool isNPC();
 
     virtual void autoMove() = 0;
+
+    string getName() { return name; }
+
+    int getX() { return location.getX(); }
+    int getY() { return location.getY(); }
 };
 
 class Prey : public Character {
@@ -101,5 +106,6 @@ public:
 
         moveTo(direction, range);
     }
+
 
 };

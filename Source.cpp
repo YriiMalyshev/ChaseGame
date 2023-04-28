@@ -21,7 +21,7 @@ int main() {
 
     Arena arena(20, 20, &prey, &predator);
 
-    cout << arena;
+    /*cout << arena;*/
 
 
     return 0;

@@ -19,6 +19,14 @@ public:
 
     void clearStep();
     bool checkOverRun();
+    int getLength()
+    {
+        return length;
+    }
+    int getWidth()
+    {
+        return width;
+    }
 
     ~Arena();
 
