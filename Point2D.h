@@ -12,6 +12,7 @@ public:
 
     Point2D(int x = 0, int y = 0) : x(x), y(y) {  }
 
+
     void setPoint(int x, int y) {
         this->x = x;
         this->y = y;
